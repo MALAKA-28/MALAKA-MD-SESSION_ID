@@ -5,7 +5,6 @@ import path from 'path';
 
 // Importing the 'pair' module
 import code from './pair.js';
-let server = require('./qr'),
 const app = express();
 
 // Resolve the current directory path in ES modules
@@ -22,9 +21,6 @@ app.use('/code', code);
 app.use('/pair', async (req, res) => {
     res.sendFile(path.join(__dirname, 'pair.html'));
 });
-app.use('/qr',async (req, res, next) => {
-res.sendFile(__path + '/qr.html')
-})
 app.use('/', async (req, res) => {
     res.sendFile(path.join(__dirname, 'main.html'));
 });
